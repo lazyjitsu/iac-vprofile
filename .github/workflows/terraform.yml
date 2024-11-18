@@ -72,7 +72,7 @@ jobs:
       - name: Get Kube config file
         id: getconfig
         if: steps.apple.outcome == 'success'
-        # In order to execute kubectl, we need the kubeconfig file!!! The below command gets us that. It creates the kubconfig file
+        #  In order to execute kubectl, we need the kubeconfig file!!! The below command gets us that. It creates the kubconfig file
         run: aws eks update-kubeconfig --region ${{ env.AWS_REGION }} --name ${{ env.EKS_CLUSTER }}
       - name: Install Ingress controller
         if: steps.apple.outcome == 'success' && steps.getconfig.outcome == 'success'
