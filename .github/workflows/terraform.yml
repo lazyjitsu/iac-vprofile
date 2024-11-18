@@ -62,7 +62,8 @@ jobs:
         id: apple
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         # --auto-approve to avoid the yes/no prompt. planfile comes from the above output
-        run: terraform apply --auto-approve --input=false --parallelism=1 planfile
+        # run: terraform apply --auto-approve --input=false --parallelism=1 planfile
+        run: terraform destroy
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
